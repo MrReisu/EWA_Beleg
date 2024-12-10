@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <title>Kontaktformular</title>
+    </head>
+    <body>
+        <form action="" method="get">
+
+
+            <h1>Kontaktformular</h1>
+            <table>
+                <tr>
+                    <td><label for="Vorname">Vorname*:</label></td>
+                    <td><input type="text" name="Vorname" placeholder="Max" size="14" minlength="2" required></td>
+                </tr>
+                <tr>
+                    <td><label for="Nachname">Nachname*:</label></td>
+                    <td><input type="text" name="Nachname" placeholder="Mustermann" size="14" minlength="2" required></td>
+                </tr>
+                <tr>
+                    <td><label for="Email">Email*:</label></td>
+                    <td><input type="Email" pattern="[^ @]*@[^ @]*" name="Email" placeholder="max.mustermann@htw-dresden.de" size="28" required></td>
+                </tr>
+                <tr>
+                    <td><label for="Straße">Stra&#223;e:</label></td>
+                    <td><input type="text" name="Straße" placeholder="Musterstra&#223;e" size="14" maxlength="50"></td>
+                </tr>
+                <tr>
+                    <td><label for="Ort">Ort:</label></td>
+                    <td><input type="text" name="Ort" placeholder="Musterstadt" size="14" maxlength="50"></td>
+                </tr>
+                <tr>
+                    <td><label for="PLZ">PLZ:</label></td>
+                    <td><input type="text" name="PLZ" placeholder="00001" size="14" minlength="5" maxlenght="5"></td>
+                </tr>
+                <tr>
+                    <td><label for="URL">URL:</label></td>
+                    <td><input type="URL" name="URL" placeholder="https://www.musterseite.de/" size="14" minlength="5" maxlenght="5"></td>
+                </tr>
+                <tr>
+                    <td><label for="Alter">Alter:</label></td>
+                    <td><input type="number" name="Alter" placeholder="21" size="14" min="3" max="120"></td>
+                </tr>
+                <tr>
+                    <td><label for="Interesse">Interesse des Kunden:</label></td>
+                    <td><input type="range" name="Interesse" size="14" min="0" max="10" value="5"></td>
+                </tr>
+                <tr>
+                    <td><label for="Anfrage"></label>Bitte geben Sie hier Ihre Anfrage an uns ein:</td>
+                    <td><textarea name="Anfrage" cols="40" rows="5" placeholder="Schreiben Sie uns Ihre Anfrage!"></textarea></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Bestätigen"></td>
+                </tr>
+            </table>
+
+
+        </form>
+    </body>
+</html>
+
