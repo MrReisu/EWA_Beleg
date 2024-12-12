@@ -1,0 +1,7 @@
+0000000000000000000000000000000000000000 eb0d8f2caecd2553cb06e69d36b7109d2995a958 Paul Wentzel <paul.wentzel@htw-dresden.de> 1704140488 +0100	clone: from PaulWentzel:VI-Carries/ewa-sveltekit-buchshop
+eb0d8f2caecd2553cb06e69d36b7109d2995a958 3ef125a56ea8a9c689b5b22e4f85d1ce660ec2b3 Paul Wentzel <p.went2002@gmail.com> 1704359408 +0100	pull: Fast-forward
+3ef125a56ea8a9c689b5b22e4f85d1ce660ec2b3 f4e2b4b2cec8f20fc23b0e464967834d87d87ba3 Paul Wentzel <p.went2002@gmail.com> 1704366540 +0100	commit: Stripe
+f4e2b4b2cec8f20fc23b0e464967834d87d87ba3 0652e6a3dcd5947bdc27e4bd450614df4ba81347 Paul Wentzel <p.went2002@gmail.com> 1704388072 +0100	commit: Stripe läuft
+0652e6a3dcd5947bdc27e4bd450614df4ba81347 a75b8491003a92f1a6c9a11f4f276996b17d03ac Paul Wentzel <p.went2002@gmail.com> 1704390738 +0100	pull: Fast-forward
+a75b8491003a92f1a6c9a11f4f276996b17d03ac 10efce0c9b411cfecbd80fde15bba6c0719f06a2 Paul Wentzel <p.went2002@gmail.com> 1704391223 +0100	pull: Fast-forward
+10efce0c9b411cfecbd80fde15bba6c0719f06a2 34f4ba6f6eb9aa5faccb814a16c9328ee0bc3f05 Paul Wentzel <p.went2002@gmail.com> 1704640760 +0100	pull --tags origin main: Fast-forward
