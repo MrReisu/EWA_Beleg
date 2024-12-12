@@ -1,0 +1,1 @@
+export { default as component } from "../../../../src/routes/checkout/[orderId]/cancel/+page.svelte";
