@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Geschenke-Shop</title>
+    <script src="https://js.stripe.com/v3/"></script>
 </head>
 <body>
     <h1 class="text-center">Geschenke-Shop</h1>
@@ -37,6 +38,8 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
     <script>
+        const stripe = Stripe("your-publishable-key-here"); // Ersetze "your-publishable-key-here" durch deinen Stripe-Schlüssel
+
         const app = Vue.createApp({
             data() {
                 return {
@@ -71,14 +74,36 @@
                         this.products[index].orders--;
                     }
                 },
-                placeOrder() {
+                async placeOrder() {
                     const orderedProducts = this.products.filter(product => product.orders > 0);
                     if (orderedProducts.length > 0) {
-                        let orderSummary = "Sie haben folgende Produkte bestellt:\n";
-                        orderedProducts.forEach(product => {
-                            orderSummary += `- ${product.name}: ${product.orders} Stück\n`;
+                        // Erstelle die Checkout-Daten
+                        const lineItems = orderedProducts.map(product => ({
+                            price_data: {
+                                currency: 'eur',
+                                product_data: {
+                                    name: product.name
+                                },
+                                unit_amount: 1000 // Beispielpreis: 10 EUR
+                            },
+                            quantity: product.orders
+                        }));
+
+                        // Erstelle die Checkout-Session auf deinem Server
+                        const response = await fetch("/create-checkout-session", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                lineItems: lineItems
+                            })
                         });
-                        alert(orderSummary);
+
+                        const session = await response.json();
+
+                        // Weiterleitung zu Stripe Checkout
+                        stripe.redirectToCheckout({ sessionId: session.id });
                     } else {
                         alert("Keine Produkte ausgewählt.");
                     }
