@@ -7,7 +7,7 @@ $database = "g17";
 
 $conn = new mysqli($host, $user, $password, $database);
 if ($conn->connect_error) {
-    die("Verbindung zur Datenbank fehlgeschlagen: " . $conn->connect_error);
+    die("Verbindung zur Datenbank fehlgeschlagen: ".$conn->connect_error);
 }
 
 // Überprüfen, ob ein Detail-ID-Parameter gesetzt ist
@@ -15,7 +15,7 @@ if (isset($_GET['produktid'])) {
     $detailid = intval($_GET['produktid']); // Sicherheitsmaßnahme gegen SQL-Injection
 
     // SQL-Abfrage, um Details zum Buch abzurufen
-    $sql = "SELECT * FROM buecher WHERE id = ?";
+    $sql = "SELECT * FROM buecher WHERE produktid = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $detailid);
     $stmt->execute();
