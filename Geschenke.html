@@ -17,20 +17,21 @@
                 <div class="d-flex justify-content-between align-items-center">
                     <div>
                         Produkt: "{{ product.name }}" <br>
-                        <small>Anzahl im Lager: 
-                            <span class="badge badge-primary badge-pill">{{ product.quantity }}</span>
+                        <small>Bestellungen: 
+                            <span class="badge badge-primary badge-pill">{{ product.orders }}</span>
                         </small>
-                        <span style="color:red" v-if="product.quantity === 0"> Neue Artikel sind unterwegs</span>
                     </div>
-                    <div>
+                    <div class="d-flex align-items-center">
                         <button class="btn btn-outline-success" @click="increase(index)">+</button>
+                        <input type="number" class="form-control mx-2" style="width: 70px; text-align: center;" v-model.number="product.orders" min="0">
                         <button class="btn btn-outline-danger" @click="decrease(index)">-</button>
-                        <button class="btn btn-warning" @click="resetProductQuantity(index)">Menge auf 0 setzen</button>
-                        <button class="btn btn-primary ml-2" @click="orderProduct(index)" :disabled="product.quantity === 0">Bestellen</button>
                     </div>
                 </div>
             </li>
         </ul>
+        <div class="text-center mt-4">
+            <button class="btn btn-primary" @click="placeOrder">Bestellen</button>
+        </div>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -42,30 +43,15 @@
                     message: "Geschenke Liste",
                     timestamp: " - Time -",
                     products: [
-                        { id: "1", quantity: 1, name: "PHP-Buch" },
-                        { id: "2", quantity: 3, name: "PHP-Kochbuch" },
-                        { id: "3", quantity: 5, name: "Java-Kochbuch" },
-                        { id: "4", quantity: 6, name: "C++-Kochbuch" },
-                        { id: "5", quantity: 7, name: "Python-Kochbuch" }
+                        { id: "1", orders: 0, name: "PHP-Buch" },
+                        { id: "2", orders: 0, name: "PHP-Kochbuch" },
+                        { id: "3", orders: 0, name: "Java-Kochbuch" },
+                        { id: "4", orders: 0, name: "C++-Kochbuch" },
+                        { id: "5", orders: 0, name: "Python-Kochbuch" }
                     ]
                 };
             },
             methods: {
-                fetchData() {
-                    fetch("https://api.myjson.com/bins/74l63")
-                        .then(response => response.json())
-                        .then((data) => {
-                            this.products = data.products;
-                        });
-                },
-                increase(index) {
-                    this.products[index].quantity++;
-                },
-                decrease(index) {
-                    if (this.products[index].quantity > 0) {
-                        this.products[index].quantity--;
-                    }
-                },
                 now() {
                     const today = new Date();
                     const date = today.getDate()
@@ -77,34 +63,29 @@
                     const dateTime = "" + date + ' Uhrzeit: ' + time;
                     this.timestamp = dateTime;
                 },
-                resetProductQuantity(index) {
-                    this.products[index].quantity = 0;
+                increase(index) {
+                    this.products[index].orders++;
                 },
-                orderProduct(index) {
-                    const product = this.products[index];
-                    if (product.quantity > 0) {
-                        alert(`Sie haben '${product.name}' bestellt!`);
-                        // Optional: Senden der Bestellung an einen Server
-                       then(response => {
-                            if (response.ok) {
-                                alert("Bestellung erfolgreich!");
-                                product.quantity--;
-                            } else {
-                                alert("Fehler bei der Bestellung. Bitte versuchen Sie es erneut.");
-                            }
-                        })
-                        .catch(error => {
-                            console.error("Fehler:", error);
-                            alert("Es gab ein Problem mit der Bestellung.");
+                decrease(index) {
+                    if (this.products[index].orders > 0) {
+                        this.products[index].orders--;
+                    }
+                },
+                placeOrder() {
+                    const orderedProducts = this.products.filter(product => product.orders > 0);
+                    if (orderedProducts.length > 0) {
+                        let orderSummary = "Sie haben folgende Produkte bestellt:\n";
+                        orderedProducts.forEach(product => {
+                            orderSummary += `- ${product.name}: ${product.orders} Stück\n`;
                         });
+                        alert(orderSummary);
+                    } else {
+                        alert("Keine Produkte ausgewählt.");
                     }
                 }
             },
             created() {
                 setInterval(this.now, 1000);
-            },
-            mounted() {
-                // this.fetchData();
             }
         });
         app.mount('#app');
