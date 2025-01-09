@@ -1,10 +1,14 @@
 <?php
 header("Content-Type: application/json");
-// Datenbankverbindung
-$host = "localhost";
-$user = "g17";
-$password = "or21tan";
-$database = "g17";
+
+// Verbindung zur MariaDB herstellen
+$link = new mysqli("localhost", "g17", "or21tan", "g17");
+
+$stmt= $link->query("SELECT * FROM buecher");
+
+// Alle Bücher aus der Datenbank holen
+$buecher = $stmt->fetch_all() ;
+?>
 
 $conn = new mysqli($host, $user, $password, $database);
 
