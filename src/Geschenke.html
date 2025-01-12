@@ -58,7 +58,7 @@
                     this.timestamp = dateTime;
                 },
                 fetchData() {
-                    fetch("http://localhost/fetchProducts.php") // Replace with your actual backend URL
+                    fetch("http://localhost/fetchProducts.php") //Pfad zum Datencatcher
                         .then(response => response.json())
                         .then((data) => {
                             this.products = data;
@@ -67,7 +67,6 @@
                             console.error("Error fetching products:", error);
                         });
                 },
-                // Other methods remain the same...
                 mounted() {
                     this.fetchData(); // Fetch products from the backend on component mount
                 },
