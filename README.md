@@ -13,6 +13,6 @@ Ich habe die .php-Dateien erstmal geschrieben, aber noch nicht ausführlich gete
 -- Frontend mit Bootstrap
 -- Stripe-Keys
 -- In .html einfügen: Login, Register, Bestellung
-
+-- Adminbereich nötig??
 
 Ich habe gleich kein Internet mehr und muss das jetzt pushen. Bei Technikfragen, Tech Huy fragen.
