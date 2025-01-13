@@ -1,0 +1,20 @@
+//Dummy-Data
+{ 
+  "products": [
+                { "id":  "1",
+                  "quantity":"2",
+                  "name":"PHP-Book"
+                },
+		{             "id":  "2",
+                  "quantity":"3",
+                  "name":"JavaScript"
+                },
+		{             "id":  "3",
+                  "quantity":"3",
+                  "name":"VueJs 3"
+                }
+             ]
+
+}
+
+
