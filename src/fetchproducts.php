@@ -8,7 +8,7 @@ $stmt= $link->query("SELECT * FROM buecher");
 
 // Alle Bücher aus der Datenbank holen
 $buecher = $stmt->fetch_all() ;
-?>
+
 
 $conn = new mysqli($host, $user, $password, $database);
 
