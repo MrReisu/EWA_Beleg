@@ -1,5 +1,5 @@
 <?php
-
+// Verbindung zur MariaDB herstellen
 $mysqli = mysqli_connect("localhost", "g17", "or21tan", "g17")  or
  die(mysql_error());
 
