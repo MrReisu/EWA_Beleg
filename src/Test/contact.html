@@ -1,6 +1,95 @@
-<html>
+<!DOCTYPE html>
+<html lang="de">
     <head>
-        <title>Kontaktformular</title>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontaktformular</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-group textarea {
+            resize: none;
+            height: 100px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #007BFF;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+
+        .form-message {
+            text-align: center;
+            color: green;
+            margin-top: 10px;
+        }
+
+        .form-error {
+            text-align: center;
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
     </head>
     <body>
         <form action="" method="get">
@@ -49,7 +138,7 @@
                     <td><textarea name="Anfrage" cols="40" rows="5" placeholder="Schreiben Sie uns Ihre Anfrage!"></textarea></td>
                 </tr>
                 <tr>
-                    <td><input type="submit" value="Bestätigen"></td>
+                    <td><input type="submit" value="Best&auml;tigen"></td>
                 </tr>
             </table>
 
